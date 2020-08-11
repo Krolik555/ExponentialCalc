@@ -12,27 +12,28 @@ namespace Exponential_Calc.Classes
         /// <summary>
         /// Determines if TTL is Days, Months or Years and adjusts the Yearly ROR accordingly
         /// </summary>
-        /// <param name="TTL_D_M_Y"></param>
+        /// <param name="Compound"></param>
         /// <param name="ROR"></param>
         /// <returns></returns>
-        public static double TimespanLogic(ComboBox TTL_D_M_Y, double ROR)
+        public static double TimespanLogic(ComboBox RunFor_Type, double ROR)
         {
             double CalculatedROR = 0.0;
 
             try
             {
-                if (TTL_D_M_Y.SelectedItem.ToString() == "Days")
-                {
-                    CalculatedROR = ROR / 365;
-                }
-                else if (TTL_D_M_Y.SelectedItem.ToString() == "Months")
-                {
-                    CalculatedROR = ROR / 12;
-                }
-                else if (TTL_D_M_Y.SelectedItem.ToString() == "Years")
-                {
-                    CalculatedROR = ROR;
-                }
+                CalculatedROR = ROR / 365;
+                //if (RunFor_Type.SelectedItem.ToString() == "Days")
+                //{
+                //    CalculatedROR = ROR / 365;
+                //}
+                //else if (RunFor_Type.SelectedItem.ToString() == "Months")
+                //{
+                //    CalculatedROR = ROR / 12;
+                //}
+                //else if (RunFor_Type.SelectedItem.ToString() == "Years")
+                //{
+                //    CalculatedROR = ROR;
+                //}
             }
             catch
             {

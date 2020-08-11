@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.aButtonSubmit = new System.Windows.Forms.Button();
             this.aTextBoxResults = new System.Windows.Forms.TextBox();
             this.aTextBoxStartingValue = new System.Windows.Forms.TextBox();
@@ -45,6 +46,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.aComboboxCompound = new System.Windows.Forms.ComboBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // aButtonSubmit
@@ -93,9 +95,10 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(96, 129);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 13);
+            this.label2.Size = new System.Drawing.Size(109, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Rate of Return";
+            this.label2.Text = "Yearly Rate of Return";
+            this.toolTip1.SetToolTip(this.label2, "Compounded interest daily");
             // 
             // label3
             // 
@@ -138,6 +141,7 @@
             this.aTextBoxTTL.Name = "aTextBoxTTL";
             this.aTextBoxTTL.Size = new System.Drawing.Size(100, 20);
             this.aTextBoxTTL.TabIndex = 9;
+            this.aTextBoxTTL.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.aTextBoxTTL_KeyPress);
             // 
             // aLabelResult
             // 
@@ -192,6 +196,7 @@
             this.label6.Size = new System.Drawing.Size(70, 13);
             this.label6.TabIndex = 16;
             this.label6.Text = "Compounded";
+            this.label6.Visible = false;
             // 
             // aComboboxCompound
             // 
@@ -205,6 +210,7 @@
             this.aComboboxCompound.Name = "aComboboxCompound";
             this.aComboboxCompound.Size = new System.Drawing.Size(103, 21);
             this.aComboboxCompound.TabIndex = 17;
+            this.aComboboxCompound.Visible = false;
             // 
             // Dashboard
             // 
@@ -255,6 +261,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox aComboboxCompound;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

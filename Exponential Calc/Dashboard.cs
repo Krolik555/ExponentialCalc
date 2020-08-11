@@ -29,7 +29,7 @@ namespace Exponential_Calc
         {
             double RateofReturn = ParseToDouble.NotUSD(aTextBoxRateOfReturn) / 100;
             // convert TTL Textbox to int
-            int TTL = ParseToInt.Run(aTextBoxTTL);
+            double TTL = ParseToDouble.NotUSD(aTextBoxTTL);
 
             double StartingValue = Classes.ParseToDouble.USD(aTextBoxStartingValue);
             double Contribution = Classes.ParseToDouble.USD(aTextBoxContribution);
@@ -41,23 +41,36 @@ namespace Exponential_Calc
             for (int T = 1; T <= TTL; T++)
             {
                 // Calculate
-                Results = Results * (calculatedROR + 1); // results X CalculatedROR (Ex. 
+                Results = CompoundingLogic.Compound(aComboBoxTTL_Type, T, calculatedROR, Results, TTL);
+                //Results = Results * (calculatedROR + 1); // results X CalculatedROR (Ex. 
 
                 // Add contribution
                 Results += ContributionLogic.Run(aComboBoxTTL_Type, aComboboxContribution_Type, Contribution, T);
             }
             aTextBoxResults.Text = Results.ToString();
-            Textbox_to_USD.convert(aTextBoxResults);
+            aTextBoxResults.Text = (ParseToDouble.USD(aTextBoxResults).ToString("C2"));
         }
 
         private void aTextBoxStartingValue_Leave(object sender, EventArgs e)
         {
-            Textbox_to_USD.convert(aTextBoxStartingValue);
+            aTextBoxStartingValue.Text = (ParseToDouble.USD(aTextBoxStartingValue).ToString("C2"));
+
+
         }
 
         private void aTextBoxContribution_Leave(object sender, EventArgs e)
         {
-            Textbox_to_USD.convert(aTextBoxContribution);
+            aTextBoxContribution.Text = (ParseToDouble.USD(aTextBoxContribution).ToString("C2"));
+        }
+
+        private void aTextBoxTTL_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // if Backspace pressed
+            if(e.KeyChar != '\b')
+            {
+                e.Handled = !char.IsDigit(e.KeyChar);
+            }
+            
         }
     }
 }

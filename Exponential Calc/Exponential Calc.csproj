@@ -46,10 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\CompoundingLogic.cs" />
     <Compile Include="Classes\ContributionLogic.cs" />
     <Compile Include="Classes\ParseToDouble.cs" />
     <Compile Include="Classes\ParseToInt.cs" />
-    <Compile Include="Classes\Textbox_to_USD.cs" />
     <Compile Include="Classes\ROR_Logic.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>

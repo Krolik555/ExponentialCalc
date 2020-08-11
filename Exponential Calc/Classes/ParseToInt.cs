@@ -9,11 +9,11 @@ namespace Exponential_Calc.Classes
 {
     class ParseToInt
     {
-        public static int Run(TextBox textbox)
+        public static double Run(TextBox textbox)
         {
             if (textbox.Text != "")
             {
-                return Convert.ToInt32(textbox.Text);
+                return ParseToDouble.NotUSD(textbox);
             }
             else
             {
